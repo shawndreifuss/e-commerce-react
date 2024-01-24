@@ -118,7 +118,7 @@ import {
         </div>
         <div className="w-2/5 h-full hidden md:block lg:block">
           <img
-            src="/images/pattern.png"
+            src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZnVybml0dXJlfGVufDB8fDB8fHww"
             className="h-screen w-full object-cover rounded-3xl"
           />
         </div>
