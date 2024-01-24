@@ -6,21 +6,22 @@ const User = require('../models/User');
 const ErrorHandler = require('../utils/ErrorHandler');
 
 router.post('/register', upload.single('file'), async (req, res, next) => {
-    const { name, email, password} = req.body;
+    const { name, email, password, avatar} = req.body;
     const userEmail = await User.findOne({email});
-
+console.log(req)
     if(userEmail) {
         return console.log('Email already exists');
     }
 
+    
+
+    
     const fileName = req.file.filename;
-    const fileUrl = path.join(fileName)
-    console.log(filename)
     const user = {   
         name,
         email,
         password,
-        avatar: fileUrl
+        avatar: fileName
     };
 const newUser = await User.create(user);
 res.status(201).json({
