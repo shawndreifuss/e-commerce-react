@@ -1,14 +1,15 @@
 import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { server } from "../server";
-
+import { toast } from "react-toastify";
 export function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +20,15 @@ export function Register() {
     newForm.append("email", email);
     newForm.append("password", password);
 
-    axios.post(`${server}/api/user/register`, newForm, config).then((res) => {
-      console.log(newForm);
-    }).catch((err) => {
+    axios.post(`${server}/api/user/register`, newForm, config)
+    .then((res) => {
+      toast.success(res.data.message);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setAvatar();
+      })
+    .catch((err) => {
       console.log(err);
     })
   };
