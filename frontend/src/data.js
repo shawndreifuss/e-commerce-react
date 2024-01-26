@@ -1,0 +1,126 @@
+export const EXAMPLE_FURNITURE = [
+    {
+      img: `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVybml0dXJlfGVufDB8fDB8fHww`,
+      category: "Frank Herbert",
+      title: "Lorem Ipsum",
+      desc: "A classic epic that explores political intrigue and power struggles on a desert planet.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnVybml0dXJlfGVufDB8fDB8fHww`,
+      category: "William Gibson",
+      title: "Lorem Ipsum",
+      desc: "A pioneering cyberpunk novel filled with futuristic technology and hackers.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZnVybml0dXJlfGVufDB8fDB8fHww`,
+      category: "J.R.R. Tolkien",
+      title: "Lorem Ipsum",
+      desc: "A timeless adventure through Middle-earth, featuring Bilbo Baggins and his quest.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://media.istockphoto.com/id/1386471399/photo/modern-living-room-interior-3d-render.webp?b=1&s=170667a&w=0&k=20&c=ZJHxSY7Pg6xA9lx7df7xZe7KjH9z_16SfZj5wwZzC9E=`,
+      category: "Lorem Ipsum",
+      title: "Dune",
+      desc: "A classic epic that explores political intrigue and power struggles on a desert planet.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      category: "William Gibson",
+      title: "Lorem Ipsum",
+      desc: "A pioneering cyberpunk novel filled with futuristic technology and hackers.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      category: "J.R.R. Tolkien",
+      title: "Lorem Ipsum",
+      desc: "A timeless adventure through Middle-earth, featuring Bilbo Baggins and his quest.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1540638349517-3abd5afc5847?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      category: "Frank Herbert",
+      title: "Lorem Ipsum",
+      desc: "A classic epic that explores political intrigue and power struggles on a desert planet.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      category: "William Gibson",
+      title: "Lorem Ipsum",
+      desc: "A pioneering cyberpunk novel filled with futuristic technology and hackers.",
+      price: "$99",
+      offPrice: "$79",
+    },
+    {
+      img: `https://images.unsplash.com/photo-1517705008128-361805f42e86?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      category: "J.R.R. Tolkien",
+      title: "Lorem Ipsum",
+      desc: "A timeless adventure through Middle-earth, featuring Bilbo Baggins and his quest.",
+      price: "$99",
+      offPrice: "$79",
+    },
+  ];
+
+ export const sortOptions = [
+    { name: 'Most Popular', href: '#', current: true },
+    { name: 'Best Rating', href: '#', current: false },
+    { name: 'Newest', href: '#', current: false },
+    { name: 'Price: Low to High', href: '#', current: false },
+    { name: 'Price: High to Low', href: '#', current: false },
+  ]
+  export const subCategories = [
+    { name: 'Totes', href: '#' },
+    { name: 'Backpacks', href: '#' },
+    { name: 'Travel Bags', href: '#' },
+    { name: 'Hip Bags', href: '#' },
+    { name: 'Laptop Sleeves', href: '#' },
+  ]
+  export const filters = [
+    {
+      id: 'color',
+      name: 'Color',
+      options: [
+        { value: 'white', label: 'White', checked: false },
+        { value: 'beige', label: 'Beige', checked: false },
+        { value: 'blue', label: 'Blue', checked: true },
+        { value: 'brown', label: 'Brown', checked: false },
+        { value: 'green', label: 'Green', checked: false },
+        { value: 'purple', label: 'Purple', checked: false },
+      ],
+    },
+    {
+      id: 'category',
+      name: 'Category',
+      options: [
+        { value: 'new-arrivals', label: 'New Arrivals', checked: false },
+        { value: 'sale', label: 'Sale', checked: false },
+        { value: 'travel', label: 'Travel', checked: true },
+        { value: 'organization', label: 'Organization', checked: false },
+        { value: 'accessories', label: 'Accessories', checked: false },
+      ],
+    },
+    {
+      id: 'size',
+      name: 'Size',
+      options: [
+        { value: '2l', label: '2L', checked: false },
+        { value: '6l', label: '6L', checked: false },
+        { value: '12l', label: '12L', checked: false },
+        { value: '18l', label: '18L', checked: false },
+        { value: '20l', label: '20L', checked: false },
+        { value: '40l', label: '40L', checked: true },
+      ],
+    },
+  ]

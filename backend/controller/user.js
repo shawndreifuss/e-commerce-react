@@ -15,16 +15,7 @@ router.post("/register", upload.single("file"), async (req, res, next) => {
   const { name, email, password } = req.body;
   const userEmail = await User.findOne({ email });
   if (userEmail) {
-    const fileName = req.file.filename;
-    const filePath = `uploads/${fileName}`;
-    fs.unlink(filePath, (err) => {
-      if (err) {
-        console.log(err);
-        res.status(500).json({
-          success: false,
-          message: "Server error. Please try again.",
-        });
-      }
+    res.status(400).json({ message: "Email already exists"
     });
     return console.log("Email already exists");
   }
@@ -70,14 +61,14 @@ router.post("/activation", catchAsyncErrors (async (req, res, next) => {
     const {activationToken} = req.body
     const newUser = jwt.verify(activationToken, "438bvyti84ybr89yq398vybt93y4gw43g4w4")
     if(!newUser) {
-      return next(new ErrorHandler("Invalid Token", 400))
+      return 
     }
       const {name, email, password, avatar} = newUser 
       
 
       let user = await User.findOne({email})
       if(user) {
-        return next(new ErrorHandler("User already exists", 400))
+        return 
       }
       
       user = await User.create({
@@ -88,8 +79,6 @@ router.post("/activation", catchAsyncErrors (async (req, res, next) => {
       })
 
       sendToken(user, 201, res)
-
-      console.log(res)
       
     
   }  catch (error) {

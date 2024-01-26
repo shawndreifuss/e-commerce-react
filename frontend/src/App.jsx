@@ -6,15 +6,19 @@ import Navbar from './components/Navbar';
 import ActivationPage from './pages/ActivationPage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Homepage from './pages/Homepage';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
   return (
     <BrowserRouter>
     <Navbar />
       <Routes>
+        <Route path="/" element={<Homepage/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/activation/:activationToken" element={<ActivationPage/>} />
+        <Route path="/products" element={<ProductsPage/>} />
       </Routes>
       <ToastContainer 
         position="bottom-center"
