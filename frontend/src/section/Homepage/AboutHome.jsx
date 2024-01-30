@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -36,7 +37,9 @@ const AboutHome = () => {
                   dolores et quas molestias excepturi sint occaecati cupiditate
                   non provident.
             </Typography>
+            <Link to="/about">
             <Button variant="filled">read more</Button>
+            </Link>
           </div>
           <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
             <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">

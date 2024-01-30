@@ -15,24 +15,28 @@ const CATEGORIES = [
     icon: BedIcon,
     title: "Bedsets",
     desc: "up to 40% OFF",
+    category: 'living'
   },
   {
     img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGluaW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
     icon: TableRestaurantIcon,
     title: "Dining Tables",
     desc: "up to 40% OFF",
+    category: 'bedroom'
   },
   {
     img: "https://plus.unsplash.com/premium_photo-1683141318297-75a3d8e86476?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RHJlc3NlcnxlbnwwfHwwfHx8MA%3D%3D",
     icon: DnsIcon,
     title: "Dressers",
     desc: "up to 40% OFF",
+    category: 'trending'
   },
   {
     img: "https://images.unsplash.com/photo-1617806265182-7b3f847f0b75?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvbWUlMjBkZWNvcnxlbnwwfHwwfHx8MA%3D%3D",
     icon: HouseIcon,
     title: "Home Decor",
     desc: "up to 40% OFF",
+    category: 'outside'
   },
 ];
 

@@ -19,7 +19,7 @@ function TopCategoryCard({ img, title, desc, icon: Icon }) {
             {title}
           </Typography>
           <Typography color="white" className="text-xs font-bold opacity-50">
-            {desc}
+            {desc}, 
           </Typography>
         </div>
       </CardBody>

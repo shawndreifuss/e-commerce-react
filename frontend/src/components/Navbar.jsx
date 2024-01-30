@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Searchbar from "./Homepage/Searchbar";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
   Navbar as MTNavbar,
   Collapse,
@@ -32,7 +33,7 @@ const NAV_MENU = [
     href: "/",
   },
   {
-    name: "Account",
+    name: "Shop",
     icon: UserCircleIcon,
   },
 ];
@@ -73,9 +74,11 @@ export function Navbar() {
   return (
     <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
+        <Link to='/'>
         <Typography color="blue-gray" className="text-lg font-bold">
           E-commerce Store
         </Typography>
+        </Link>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -95,7 +98,11 @@ export function Navbar() {
           )}
         </ul>
         <Searchbar />
-        <div className="hidden items-center gap-2 lg:flex">
+
+
+     {/* =============  if no user ================= */}
+
+        {/* <div className="hidden items-center gap-2 lg:flex">
           <Link to='/login'><Button href="/login" variant="text">Login</Button></Link>
           
           <a href="/register" >
@@ -113,8 +120,32 @@ export function Navbar() {
           ) : (
             <Bars3Icon strokeWidth={2} className="h-6 w-6" />
           )}
+        </IconButton>*/}
+
+
+
+
+        {/*    ===========   If User ============== */}
+         <div className="hidden items-center gap-2 lg:flex">
+         <img src="/images/no-avatar.png" alt="" className="w-[36px] h-[36px] rounded-full object-cover mr-3" />
+       
+          <a href="#" >
+            <Button color="gray">Logout</Button>
+          </a>
+        </div>
+        <IconButton
+          variant="text"
+          color="gray"
+          onClick={handleOpen}
+          className="ml-auto inline-block lg:hidden"
+        >
+          {open ? (
+            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+          ) : (
+            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+          )}
         </IconButton>
-      </div>
+      </div> 
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">

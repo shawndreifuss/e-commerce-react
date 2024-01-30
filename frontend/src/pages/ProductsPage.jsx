@@ -4,6 +4,7 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Products from '../components/ProductsPage/Products'
+import { useNavigate } from "react-router-dom"
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -61,8 +62,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function ProductsPage({category}) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+
+  const Navigate = useNavigate();
+const handleSubmit = (category) => {
+  console.log("hello")
+  Navigate(`/products?category=${category.name}`)
+  window.location.reload();
+}
 
   return (
     <div className="bg-white">
@@ -109,9 +117,9 @@ export default function Example() {
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                      {subCategories && subCategories.map((category, index) => (
+                        <li onClick={() => handleSubmit(category)} key={index}>
+                          <a  className="block px-2 py-3">
                             {category.name}
                           </a>
                         </li>
@@ -241,7 +249,7 @@ export default function Example() {
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
-                    <li key={category.name}>
+                    <li key={category.name} onClick={() => handleSubmit(category)}>
                       <a href={category.href}>{category.name}</a>
                     </li>
                   ))}
