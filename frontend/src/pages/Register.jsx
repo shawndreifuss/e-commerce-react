@@ -42,9 +42,9 @@ export function Register() {
     <section className="m-8 flex">
       <div className="w-2/5 h-full hidden lg:block">
         <img
-          src="/images/pattern.png"
+          src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZnVybml0dXJlfGVufDB8fDB8fHww"
           alt=""
-          className="h-full w-full object-cover rounded-3xl"
+          className=" w-full h-screen object-cover rounded-3xl"
         />
       </div>
       <div className="w-full lg:w-3/5 flex flex-col items-center justify-center">
@@ -144,7 +144,7 @@ export function Register() {
             <img src={URL.createObjectURL(avatar)} alt="" className="h-5 w-5" />
           ) : null}
           <div className="avatar">
-            <label htmlFor="file">
+            {/* <label htmlFor="file">
               <Button
                 variant="gradient"
                 className="flex mt-5 items-center gap-3"
@@ -165,11 +165,12 @@ export function Register() {
                 </svg>
                 Upload Image
               </Button>
-            </label>
+            </label> */}
             <input
               type="file"
               id="file"
               name="avatar"
+              className="mt-2"
               onChange={handleFileUpload}
               accept=".jpg, .jpeg, .png"
             />
@@ -247,7 +248,7 @@ export function Register() {
               className="flex items-center gap-2 justify-center shadow-md"
               fullWidth
             >
-              <img src="/img/twitter-logo.svg" height={24} width={24} alt="" />
+              <img src="/images/twitter-logo.svg" height={24} width={24} alt="" />
               <span>Sign in With Twitter</span>
             </Button>
           </div>
@@ -256,7 +257,7 @@ export function Register() {
             className="text-center text-blue-gray-500 font-medium mt-4"
           >
             Already have an account?
-            <Link to="/sign-in" className="text-gray-900 ml-1">
+            <Link to="/login" className="text-gray-900 ml-1">
               Sign in
             </Link>
           </Typography>

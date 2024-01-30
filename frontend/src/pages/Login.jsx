@@ -10,6 +10,7 @@ export function Login() {
   const Navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isUser, setIsUser] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
