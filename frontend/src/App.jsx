@@ -12,6 +12,7 @@ import Store from './redux/store';
 import { loadUser } from './redux/actions/user';
 
 
+
  function App() {
   useEffect(() => {
    Store.dispatch(loadUser())
@@ -27,6 +28,7 @@ import { loadUser } from './redux/actions/user';
         <Route path="/" element={<Homepage/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path='/products' element={<ProductsPage/>} />
         <Route path="/activation/:activationToken" element={<ActivationPage/>} />
         <Route path="/products" element={<ProductsPage/>} />
       </Routes>
