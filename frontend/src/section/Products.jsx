@@ -2,10 +2,10 @@
 import { Fragment, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-
 import ProductCard from '../components/Cards/ProductCard'
 import {Menu as FilterMenu } from '@headlessui/react'
-import { EXAMPLE_FURNITURE, sortOptions, subCategories, filters } from '../data'
+import { EXAMPLE_FURNITURE, sortOptions, productData } from '../data'
+
 
 
 function classNames(...classes) {
@@ -28,7 +28,6 @@ export default function ProductsPage() {
                     />
                   </FilterMenu.Button>
                 </div>
-
                 <Transition
                   as={Fragment}
                   enter="transition ease-out duration-100"

@@ -1,3 +1,8 @@
+import BedIcon from "@mui/icons-material/Bed";
+import DnsIcon from "@mui/icons-material/Dns";
+import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
+import HouseIcon from "@mui/icons-material/House";
+
 export const EXAMPLE_FURNITURE = [
     {
       img: `https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVybml0dXJlfGVufDB8fDB8fHww`,
@@ -138,7 +143,7 @@ export const EXAMPLE_FURNITURE = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg",
         },
         {
           public_id: "test",
@@ -183,7 +188,8 @@ export const EXAMPLE_FURNITURE = [
         },
         ratings: 4.2,
       },
-      discount_price: 1099,
+      discount_price: 2499.99,
+      price: 1099,
       rating: 5,
       total_sell: 80,
       stock: 10,
@@ -198,7 +204,7 @@ export const EXAMPLE_FURNITURE = [
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://i0.wp.com/eccocibd.com/wp-content/uploads/2022/01/1802NL02_1.png?fit=550%2C550&ssl=1",
         },
         {
           public_id: "test",
@@ -413,6 +419,7 @@ export const EXAMPLE_FURNITURE = [
         ratings: 4.2,
       },
       discount_price: 1099,
+      price: 1099,
       rating: 5,
       total_sell: 20,
       stock: 10,
@@ -456,4 +463,258 @@ export const EXAMPLE_FURNITURE = [
       total_sell: 20,
       stock: 10,
     },
+  ];
+
+
+
+
+  export const CATEGORIES = [
+    {
+      img: "https://media.istockphoto.com/id/1467126728/photo/modern-scandinavian-and-japandi-style-bedroom-interior-design-with-bed-white-color-wooden.webp?b=1&s=170667a&w=0&k=20&c=gPCpCv93qEQmXuOy__B4h3qTNR-WCJWn0wribNREeFU=",
+      icon: BedIcon,
+      title: "Bedsets",
+      desc: "up to 40% OFF",
+      category: 'living'
+    },
+    {
+      img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGluaW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
+      icon: TableRestaurantIcon,
+      title: "Dining Tables",
+      desc: "up to 40% OFF",
+      category: 'bedroom'
+    },
+    {
+      img: "https://plus.unsplash.com/premium_photo-1683141318297-75a3d8e86476?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RHJlc3NlcnxlbnwwfHwwfHx8MA%3D%3D",
+      icon: DnsIcon,
+      title: "Dressers",
+      desc: "up to 40% OFF",
+      category: 'trending'
+    },
+    {
+      img: "https://images.unsplash.com/photo-1617806265182-7b3f847f0b75?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvbWUlMjBkZWNvcnxlbnwwfHwwfHx8MA%3D%3D",
+      icon: HouseIcon,
+      title: "Home Decor",
+      desc: "up to 40% OFF",
+      category: 'outside'
+    },
+  ];
+
+
+
+  export const trendingFurniture = [
+    {
+      img: `https://media.istockphoto.com/id/1440917866/photo/modern-open-plan-office-space-interior.webp?b=1&s=170667a&w=0&k=20&c=vaidCDHWF1VcAZ_KbTHg4aYPi_ls9pHryzWmYYJfAiY=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    {
+      img: `https://media.istockphoto.com/id/1449681387/photo/luxury-apartment.webp?b=1&s=170667a&w=0&k=20&c=mN6PfRbIbqxxMiX8hNaIe0Lj0N66F9ipLqW9_zlugw0=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    {
+      img: `https://plus.unsplash.com/premium_photo-1678559033839-aaf50cb4c843?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnVybml0dXJlfGVufDB8fDB8fHww`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'bedroom'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+     
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'ouside'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'dining'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'trending'
+    },
+  ];
+
+  export const livingFurniture = [
+    
+    {
+      img: `https://media.istockphoto.com/id/1449681387/photo/luxury-apartment.webp?b=1&s=170667a&w=0&k=20&c=mN6PfRbIbqxxMiX8hNaIe0Lj0N66F9ipLqW9_zlugw0=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    
+    {
+      img: `https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+     
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'ouside'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'dining'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'trending'
+    },
+  ];
+
+  export const diningFurniture = [
+    {
+      img: `https://media.istockphoto.com/id/1440917866/photo/modern-open-plan-office-space-interior.webp?b=1&s=170667a&w=0&k=20&c=vaidCDHWF1VcAZ_KbTHg4aYPi_ls9pHryzWmYYJfAiY=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    {
+      img: `https://media.istockphoto.com/id/1449681387/photo/luxury-apartment.webp?b=1&s=170667a&w=0&k=20&c=mN6PfRbIbqxxMiX8hNaIe0Lj0N66F9ipLqW9_zlugw0=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    {
+      img: `https://plus.unsplash.com/premium_photo-1678559033839-aaf50cb4c843?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnVybml0dXJlfGVufDB8fDB8fHww`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'bedroom'
+    },
+    
+    {
+      img: `https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'dining'
+    },
+    
+  ];
+
+  export const bedroomFurniture = [
+
+    {
+      img: `https://media.istockphoto.com/id/1449681387/photo/luxury-apartment.webp?b=1&s=170667a&w=0&k=20&c=mN6PfRbIbqxxMiX8hNaIe0Lj0N66F9ipLqW9_zlugw0=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+    
+    {
+      img: `https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'dining'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'trending'
+    },
+  ];
+
+  export const outsideFurniture = [
+   
+    
+    
+    {
+      img: `https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+     
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'ouside'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'dining'
+    },
+    {
+      img: `https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'trending'
+    },
+  ];
+
+  export const bathroomFurniture = [
+    {
+      img: `https://media.istockphoto.com/id/1440917866/photo/modern-open-plan-office-space-interior.webp?b=1&s=170667a&w=0&k=20&c=vaidCDHWF1VcAZ_KbTHg4aYPi_ls9pHryzWmYYJfAiY=`,
+      
+      title: "Lorem ipsum dolor sit",
+      desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti ",
+      price: "$99",
+      offPrice: "$79",
+      category: 'living'
+    },
+   
+    
   ];

@@ -1,10 +1,11 @@
 
 import React from "react";
+import { Dropdown } from 'flowbite-react';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import Searchbar from "./Homepage/Searchbar";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
   Navbar as MTNavbar,
   Collapse,
@@ -14,7 +15,6 @@ import {
   Input,
 } from "@material-tailwind/react";
 import {
-  
   UserCircleIcon,
   CommandLineIcon,
   XMarkIcon,
@@ -35,6 +35,7 @@ const NAV_MENU = [
   {
     name: "Shop",
     icon: UserCircleIcon,
+    href: "/products",
   },
 ];
 
@@ -127,6 +128,28 @@ export function Navbar() {
 
         {/*    ===========   If User ============== */}
          <div className="hidden items-center gap-2 lg:flex">
+              <Dropdown label="" renderTrigger={() => <NotificationsIcon color="action" className="mr-2 mt-1 h-6 w-6 cursor-pointer"/>} >
+      <Dropdown.Item onClick={() => alert('Dashboard!')}>Notifcation 1</Dropdown.Item>
+      <Dropdown.Item onClick={() => alert('Settings!')}>Notifcation 2</Dropdown.Item>
+      <Dropdown.Item onClick={() => alert('Earnings!')}>Notifcation 3</Dropdown.Item>
+      <Dropdown.Item onClick={() => alert('Sign out!')}>Notifcation 4</Dropdown.Item>
+    </Dropdown>
+         
+    <Dropdown label="" renderTrigger={() => <ShoppingCartIcon color="action" className="mr-2 mt-1 h-6 w-6 cursor-pointer"/>} >
+      <Dropdown.Header>
+        <span className="block text-sm">Username</span>
+        <span className="block truncate text-sm font-medium">user@email.com</span>
+      </Dropdown.Header>
+      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 1</span></Dropdown.Item>
+      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 2</span></Dropdown.Item>
+      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 3</span></Dropdown.Item>
+      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 4</span></Dropdown.Item>
+      <Dropdown.Divider />
+      <Link to='/'>
+      <Dropdown.Item >View All</Dropdown.Item>
+      </Link>
+    </Dropdown>
+
          <img src="/images/no-avatar.png" alt="" className="w-[36px] h-[36px] rounded-full object-cover mr-3" />
        
           <a href="#" >

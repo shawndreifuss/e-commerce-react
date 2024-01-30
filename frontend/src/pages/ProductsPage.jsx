@@ -1,62 +1,13 @@
 
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Products from '../components/ProductsPage/Products'
-import { useNavigate } from "react-router-dom"
 
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
-const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-]
-const filters = [
-  {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
-    ],
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
-]
+import { sortOptions, subCategories, filters, productData } from '../data'
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -64,13 +15,15 @@ function classNames(...classes) {
 
 export default function ProductsPage({category}) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
 
-  const Navigate = useNavigate();
-const handleSubmit = (category) => {
-  console.log("hello")
-  Navigate(`/products?category=${category.name}`)
-  window.location.reload();
-}
+  useEffect(() => {
+    setProducts(productData);
+    setFilteredProducts(productData);
+  }, []);
 
   return (
     <div className="bg-white">
@@ -300,7 +253,23 @@ const handleSubmit = (category) => {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3"><Products /></div>
+              <div className="lg:col-span-3">
+              <div className="bg-white">
+       <div className=" grid grid-cols-1 gap-x-3 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+       {productData.map((i, index) => (
+        <Products
+          key={index}
+          name={i.name}
+          rating={i.rating}
+          price={i.price}
+          image={i.image_Url[0].url}
+/>
+       ))}
+
+
+        </div>
+        </div>
+                </div>
             </div>
           </section>
         </main>

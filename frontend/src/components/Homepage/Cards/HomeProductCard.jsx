@@ -1,6 +1,5 @@
 import React from "react"
-
-
+import { Link } from "react-router-dom"
 import {
   Typography,
   Card,
@@ -8,8 +7,10 @@ import {
   CardHeader
 } from "@material-tailwind/react"
 
+
 export function HomeProductCard({ img, category, title, desc, price, offPrice }) {
   return (
+    <Link to={`/products/${title}`}>
     <Card color="transparent" shadow={false}>
       <CardHeader color="gray" floated={false} className="mx-0 mt-0 mb-6">
         <img
@@ -50,6 +51,7 @@ export function HomeProductCard({ img, category, title, desc, price, offPrice })
         </div>
       </CardBody>
     </Card>
+    </Link>
   )
 }
 export default HomeProductCard
