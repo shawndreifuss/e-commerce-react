@@ -1,7 +1,9 @@
 
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Searchbar from "./Homepage/Searchbar";
 import {
   Navbar as MTNavbar,
   Collapse,
@@ -36,6 +38,7 @@ const NAV_MENU = [
 ];
 
 function NavItem({ children, href }) {
+
   return (
     <li>
       <Typography
@@ -91,9 +94,11 @@ export function Navbar() {
           </div>
           )}
         </ul>
+        <Searchbar />
         <div className="hidden items-center gap-2 lg:flex">
-          <Button href="/login" variant="text">Log in</Button>
-          <a href="/register" target="_blank">
+          <Link to='/login'><Button href="/login" variant="text">Login</Button></Link>
+          
+          <a href="/register" >
             <Button color="gray">Sign Up</Button>
           </a>
         </div>
@@ -120,6 +125,7 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
+    
           <div className="mt-6 mb-4 flex items-center gap-2">
             <Button href='/login' variant="text">Log in</Button>
             <a href="/register" target="_blank">

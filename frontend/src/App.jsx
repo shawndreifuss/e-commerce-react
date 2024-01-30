@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -8,11 +8,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Homepage from './pages/Homepage';
 import ProductsPage from './pages/ProductsPage';
+import Store from './redux/store';
+import { loadUser } from './redux/actions/user';
 
-function App() {
+
+ function App() {
+  useEffect(() => {
+   Store.dispatch(loadUser())
+  }
+  
+  , [])
+
+
   return (
     <BrowserRouter>
-    <Navbar />
+   <Navbar />
       <Routes>
         <Route path="/" element={<Homepage/>} />
         <Route path="/login" element={<Login/>} />

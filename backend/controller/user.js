@@ -8,6 +8,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
+const { isAuthenticated } = require("../middleware/auth");
 
 
 // Register Route
@@ -26,7 +27,7 @@ router.post("/register", upload.single("file"), async (req, res, next) => {
     password,
    avatar: fileName,
   };
-
+//  Create activation token for user to register
   const activationToken = createActivationToken(user);
     const activationUrl = `http://localhost:3000/activation/${activationToken}`;
 
@@ -65,6 +66,7 @@ router.post("/activation", catchAsyncErrors (async (req, res, next) => {
     }
       const {name, email, password, avatar} = newUser 
       
+      
 
       let user = await User.findOne({email})
       if(user) {
@@ -92,6 +94,7 @@ router.post(
   catchAsyncErrors(async (req, res, next) => {
     try {
       const { email, password } = req.body;
+      
 
       if (!email || !password) {
         return next(new ErrorHandler("Please provide the all fields!", 400));
@@ -118,5 +121,27 @@ router.post(
   })
 );
 
+
+// Load User 
+router.get("/getuser", isAuthenticated, catchAsyncErrors(async (req, res, next) => {
+   try {
+
+    const user = await User.findById(req.user.id);
+    if(!user) {
+      return next(new ErrorHandler("User doesn't exists!", 400));
+    }
+
+    res.status(200).json({
+      success: true,
+      user
+    })
+
+   }catch
+    (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+
+
+}))
 
 module.exports = router;

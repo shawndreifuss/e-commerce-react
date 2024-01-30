@@ -20,7 +20,9 @@ export function Login() {
         {
           email,
           password,
-        }
+          
+        },
+         { withCredentials: true }
        
       )
       .then((res) => {
@@ -28,7 +30,7 @@ export function Login() {
         Navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+      toast.error(" invalid Username or Password");
       });
   };
   return (
