@@ -86,11 +86,11 @@ export const EXAMPLE_FURNITURE = [
     { name: 'Price: High to Low', href: '#', current: false },
   ]
   export const subCategories = [
-    { name: 'Totes', href: '#' },
-    { name: 'Backpacks', href: '#' },
-    { name: 'Travel Bags', href: '#' },
-    { name: 'Hip Bags', href: '#' },
-    { name: 'Laptop Sleeves', href: '#' },
+    { name: 'cat1', href: '#' },
+    { name: 'cat2', href: '#' },
+    { name: 'cat3', href: '#' },
+    { name: 'cat4', href: '#' },
+    { name: 'cat5', href: '#' },
   ]
   export const filters = [
     {
@@ -135,8 +135,8 @@ export const EXAMPLE_FURNITURE = [
   // product Data
   export const productData = [
     {
-      id: 1,
-      category:"Computers and Laptops",
+      id:'254646421',
+      category:"cat1",
       name: "MacBook pro",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -163,10 +163,15 @@ export const EXAMPLE_FURNITURE = [
       rating: 4,
       total_sell: 35,
       stock: 10,
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 2,
-      category:"Mobile and Tablets",
+      id:'6245624562',
+      category:"cat2",
       name: "Iphone 14 pro max 256 gb ssd and 8 gb ram silver colour",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -193,11 +198,15 @@ export const EXAMPLE_FURNITURE = [
       rating: 5,
       total_sell: 80,
       stock: 10,
-      category:"Mobile & Tablets"
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 1,
-      category:"Computers and Laptop",
+      id:'1623463',
+      category:"cat3",
       name: "MacBook ",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -224,11 +233,15 @@ export const EXAMPLE_FURNITURE = [
       rating: 4,
       total_sell: 75,
       stock: 10,
-      category:"Computers & Laptop"
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 4,
-      category:"Others",
+      id:'6354454',
+      category:"cat4",
       name: "New Fashionable Watch for men 2023 with multiple colors",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -249,17 +262,22 @@ export const EXAMPLE_FURNITURE = [
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
         },
         ratings: 4.2,
-      category:"Others"
+      
       },
       price: 100,
       discount_price: 79,
       rating: 4,
       total_sell: 12,
       stock: 10,
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 5,
-      category:"Shoes",
+      id:'541234234',
+      category:"cat5",
       name: "New Trend shoes for gents with all sizes",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -286,11 +304,16 @@ export const EXAMPLE_FURNITURE = [
       rating: 5,
       total_sell: 49,
       stock: 10,
-      category:"Shoes"
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 1,
+      id:'141234234',
       name: "Gaming Headphone Asus with mutiple color and free delivery",
+      category:"cat1",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [
@@ -325,11 +348,16 @@ export const EXAMPLE_FURNITURE = [
       ],
       total_sell: 20,
       stock: 10,
-      category:"Music and Gaming"
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 4,
+      id:'41234234',
       name: "New Fashionable Watch for men 2023 with multiple colors",
+      category:"cat2",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [
@@ -355,9 +383,15 @@ export const EXAMPLE_FURNITURE = [
       rating: 4,
       total_sell: 62,
       stock: 10,
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
     {
-      id: 1,
+      id:'123411',
+      category:"cat3",
       name: "Gaming Headphone Asus with mutiple color and free delivery",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -393,10 +427,16 @@ export const EXAMPLE_FURNITURE = [
       ],
       total_sell: 20,
       stock: 10,
+      colors: [
+      { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+      { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+      { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+    ],
     },
+    
     {
-      id: 2,
-      category:"Mobile and Tablets",
+      id:'2462542',
+      category:"cat4",
       name: "Iphone 14 pro max 256 gb ssd and 8 gb ram silver colour",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -423,10 +463,16 @@ export const EXAMPLE_FURNITURE = [
       rating: 5,
       total_sell: 20,
       stock: 10,
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
+    
     {
-      id: 1,
-      category:"Music and Gaming",
+      id: 231,
+      category:"cat5",
       name: "Gaming Headphone A",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -462,6 +508,11 @@ export const EXAMPLE_FURNITURE = [
       ],
       total_sell: 20,
       stock: 10,
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
     },
   ];
 
@@ -718,3 +769,59 @@ export const EXAMPLE_FURNITURE = [
    
     
   ];
+
+
+
+
+  export const product = {
+    name: "Basic Tee 6-Pack",
+    price: "$192",
+    href: "#",
+    breadcrumbs: [
+      { id: 1, name: "Men", href: "#" },
+      { id: 2, name: "Clothing", href: "#" },
+    ],
+    images: [
+      {
+        src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+        alt: "Two each of gray, white, and black shirts laying flat.",
+      },
+      {
+        src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+        alt: "Model wearing plain black basic tee.",
+      },
+      {
+        src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+        alt: "Model wearing plain gray basic tee.",
+      },
+      {
+        src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+        alt: "Model wearing plain white basic tee.",
+      },
+    ],
+    colors: [
+      { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+      { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+      { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+    ],
+    sizes: [
+      { name: "XXS", inStock: false },
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: true },
+      { name: "2XL", inStock: true },
+      { name: "3XL", inStock: true },
+    ],
+    description:
+      'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+    highlights: [
+      "Hand cut and sewn locally",
+      "Dyed with our proprietary colors",
+      "Pre-washed & pre-shrunk",
+      "Ultra-soft 100% cotton",
+    ],
+    details:
+      'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+  };

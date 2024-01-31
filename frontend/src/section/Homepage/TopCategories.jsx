@@ -4,6 +4,7 @@ import React from "react";
 import TopCategoryCard from "../../components/Homepage/Cards/TopCategoryCard";
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, Typography, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 import { CATEGORIES } from "../../data";
 
@@ -39,7 +40,7 @@ export function TopCategories() {
         </Typography>
       </div>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 ">
-        <a href="">
+        <Link to=''>
           {" "}
           <Card className="relative grid h-full w-full place-items-center overflow-hidden text-center bg-cover bg-no-repeat  bg-[url('https://media.istockphoto.com/id/1432859958/photo/cozy-luxury-and-modern-living-room-with-sofa-windows-and-decoration-a-close-up-on-the-sofa.webp?b=1&s=170667a&w=0&k=20&c=97koD0slUrWPCEMYsGFqxCqQzNmBmleKR-sc-DGxaAI=')]">
             <div className="absolute inset-0 h-full w-full bg-gray-900/75" />
@@ -64,19 +65,19 @@ export function TopCategories() {
               </Button>
             </CardBody>
           </Card>
-        </a>
+        </Link>
         <div className="col-span-1 flex flex-col gap-6">
           {CATEGORIES.slice(0, 2).map((props, key) => (
-            <a onClick={() => handleSubmit(props.category)} key={key}>
+            <Link onClick={() => handleSubmit(props.category)} key={key}>
               <TopCategoryCard {...props} />
-            </a>
+            </Link>
           ))}
         </div>
         <div className="col-span-1 flex flex-col gap-6">
           {CATEGORIES.slice(2, 4).map((props, key) => (
-            <a onClick={() => handleSubmit(props.category)} key={key}>
+            <Link onClick={() => handleSubmit(props.category)} key={key}>
               <TopCategoryCard {...props} />
-            </a>
+            </Link>
           ))}
         </div>
       </div>

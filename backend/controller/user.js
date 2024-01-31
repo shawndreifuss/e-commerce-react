@@ -144,4 +144,15 @@ router.get("/getuser", isAuthenticated, catchAsyncErrors(async (req, res, next) 
 
 }))
 
+// Logout Route
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  localStorage.getItem("token");
+  localStorage.removeItem("token");
+  res.status(200).json({
+    success: true,
+    message: "Logged out successfully",
+  });
+});
+
 module.exports = router;

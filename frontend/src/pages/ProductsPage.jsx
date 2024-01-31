@@ -4,26 +4,63 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Products from '../components/ProductsPage/Products'
-
 import { sortOptions, subCategories, filters, productData } from '../data'
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductsPage({category}) {
+export default function ProductsPage() {
+  
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sortBy, setSortBy] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
+  const [selectedTag, setSelectedTag] = useState();
 
+  
+//  ========== GET ALL PRODUCTS =============
   useEffect(() => {
     setProducts(productData);
     setFilteredProducts(productData);
   }, []);
+
+
+  // ========== FILTER PRODUCTS =============
+  const filterProducts = (tag) => {
+    setSelectedTag(tag);
+    if (tag === "all") {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter((product) => product.category.includes(tag.name))
+      setFilteredProducts(filtered)
+      console.log(filtered);
+    }
+  }
+
+
+  //  ======== SORT BY =============
+  const sort = (e) => {
+    setSortBy(e);
+    if (e === "Price: Low to High") {
+      const sorted = [...filteredProducts].sort((a, b) => a.price - b.price);
+      setFilteredProducts(sorted);
+    } else if (e === "Price: High to Low") {
+      const sorted = [...filteredProducts].sort((a, b) => b.price - a.price);
+      setFilteredProducts(sorted);
+    } else if (e === "Most Popular") {
+      const sorted = [...filteredProducts].sort((a, b) => b.total_sell - a.total_sell);
+      setFilteredProducts(sorted);
+    }else if (e === "Newest") {
+      const sorted = [...filteredProducts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      setFilteredProducts(sorted);
+    }else if (e === "Best Rating") {
+      const sorted = [...filteredProducts].sort((a, b) => b.rating - a.rating);
+      setFilteredProducts(sorted);
+    }
+
+
+  }
 
   return (
     <div className="bg-white">
@@ -71,7 +108,7 @@ export default function ProductsPage({category}) {
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                       {subCategories && subCategories.map((category, index) => (
-                        <li onClick={() => handleSubmit(category)} key={index}>
+                        <li onClick={() => filterProducts(category)} key={index}>
                           <a  className="block px-2 py-3">
                             {category.name}
                           </a>
@@ -158,16 +195,17 @@ export default function ProductsPage({category}) {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
+                            <div
+                            onClick={()=> sort(option.name)}
                               href={option.href}
                               className={classNames(
                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
-                                active ? 'bg-gray-100' : '',
+                                active ? 'bg-gray-100 cursor-pointer' : '',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               {option.name}
-                            </a>
+                            </div>
                           )}
                         </Menu.Item>
                       ))}
@@ -202,7 +240,7 @@ export default function ProductsPage({category}) {
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
-                    <li key={category.name} onClick={() => handleSubmit(category)}>
+                    <li key={category.name} onClick={() => filterProducts(category)}>
                       <a href={category.href}>{category.name}</a>
                     </li>
                   ))}
@@ -256,15 +294,18 @@ export default function ProductsPage({category}) {
               <div className="lg:col-span-3">
               <div className="bg-white">
        <div className=" grid grid-cols-1 gap-x-3 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-       {productData.map((i, index) => (
+       {filteredProducts.map((i, index) => (
         <Products
           key={index}
+          id={i.id}
           name={i.name}
           rating={i.rating}
           price={i.price}
           image={i.image_Url[0].url}
 />
        ))}
+       
+
 
 
         </div>

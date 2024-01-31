@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Image from "next/image";
 import {
   Typography,
@@ -27,7 +28,7 @@ export function ProductCard({ img, category, title, desc, price, offPrice }) {
       </CardHeader>
       <CardBody className="p-0">
         <div className="flex ml-auto mt-0 ">
-          <a href="#" className="w-2/3 h-16 flex flex-wrap">
+          <Link to="#" className="w-2/3 h-16 flex flex-wrap">
             <Typography
               variant="h5"
               color="blue-gray"
@@ -35,7 +36,7 @@ export function ProductCard({ img, category, title, desc, price, offPrice }) {
             >
               Lorem ipsum dolor sit
             </Typography>
-          </a>
+          </Link>
 
           <Typography
             className="text-center w-1/3 text-center pt-1"

@@ -25,7 +25,6 @@ export function HomeProductCard({ img, category, title, desc, price, offPrice })
         <Typography color="blue" className="mb-2 text-xs !font-semibold">
           {category}
         </Typography>
-        <a href="#">
           <Typography
             variant="h5"
             color="blue-gray"
@@ -33,7 +32,6 @@ export function HomeProductCard({ img, category, title, desc, price, offPrice })
           >
             {title}
           </Typography>
-        </a>
         <Typography className="mb-4 font-normal !text-gray-500">
           {desc}
         </Typography>

@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react";
 const Ratings = (rating) => {
   const productRating = rating.rating;
 
-  useEffect(() => {
-    console.log(productRating);
-  });
 
   return (
     <>

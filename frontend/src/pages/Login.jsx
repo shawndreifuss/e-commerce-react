@@ -80,6 +80,7 @@ export function Login() {
               Password
             </Typography>
             <Input
+             autoComplete="on"
               type="password"
               size="lg"
               placeholder="********"

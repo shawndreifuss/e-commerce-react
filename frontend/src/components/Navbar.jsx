@@ -1,11 +1,16 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Dropdown } from 'flowbite-react';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import HomeIcon from '@mui/icons-material/Home';
+import ViewListIcon from '@mui/icons-material/ViewList';
 import Searchbar from "./Homepage/Searchbar";
+import Store from "../redux/store";
+import { logout ,loadUser} from "../redux/actions/user";
 import {
   Navbar as MTNavbar,
   Collapse,
@@ -15,36 +20,36 @@ import {
   Input,
 } from "@material-tailwind/react";
 import {
-  UserCircleIcon,
-  CommandLineIcon,
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import SearchIcon from "@mui/icons-material/Search";
+import { toast } from "react-toastify";
+
 
 const NAV_MENU = [
   {
-    name: "Cart",
-    icon: ShoppingCartIcon,
-  },
-  {
-    name: "Orders",
-    icon: CommandLineIcon,
+    name: "Home",
+    icon: HomeIcon,
     href: "/",
   },
   {
     name: "Shop",
-    icon: UserCircleIcon,
+    icon: StorefrontIcon,
     href: "/products",
+  },
+  {
+    name: "My Orders",
+    icon: ViewListIcon,
+    href: "/orders",
   },
 ];
 
 function NavItem({ children, href }) {
 
   return (
+    <Link to={href}>
     <li>
       <Typography
-        as="a"
         href={href || "#"}
         target={href ? "_blank" : "_self"}
         variant="paragraph"
@@ -54,12 +59,35 @@ function NavItem({ children, href }) {
         {children}
       </Typography>
     </li>
+    </Link>
   );
 }
 
-export function Navbar() {
+export function Navbar({user}) {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState(false);
+  const [isUser, setIsUser] = useState('');
+
+  
+  useEffect(() => {
+    Store.dispatch(loadUser())
+    const user = Store.getState().user.isAuthenticated
+    setIsUser(user)
+    console.log(user)
+  }
+  )
+  
+
+  const handleLogout = () => { 
+    Store.dispatch(logout())
+    console.log(Store.getState().user.isAuthenticated)
+    toast.success('Logged out successfully')
+
+   window.location.href = '/login'
+
+
+    
+    }
+
 
   function handleOpen() {
     setOpen((cur) => !cur);
@@ -87,28 +115,18 @@ export function Navbar() {
               {name}
             </NavItem>
           ))}
-          {user && (
-          <div className="ml-16 pl-10 flex flex-col items-center justify-center md:flex-row ">
-            <div className="w-80 flex row ">
-              <Input label="Explore" />
-              <IconButton color="white"  aria-label="add to shopping cart">
-                <SearchIcon />
-              </IconButton>
-            </div>
-          </div>
-          )}
         </ul>
         <Searchbar />
 
 
-     {/* =============  if no user ================= */}
-
-        {/* <div className="hidden items-center gap-2 lg:flex">
+     {!isUser ? (
+<>
+         <div className="hidden items-center gap-2 lg:flex">
           <Link to='/login'><Button href="/login" variant="text">Login</Button></Link>
           
-          <a href="/register" >
+          <Link to='/register' >
             <Button color="gray">Sign Up</Button>
-          </a>
+          </Link>
         </div>
         <IconButton
           variant="text"
@@ -121,12 +139,12 @@ export function Navbar() {
           ) : (
             <Bars3Icon strokeWidth={2} className="h-6 w-6" />
           )}
-        </IconButton>*/}
+        </IconButton>
+     </>
+)  : (
 
 
-
-
-        {/*    ===========   If User ============== */}
+          <>
          <div className="hidden items-center gap-2 lg:flex">
               <Dropdown label="" renderTrigger={() => <NotificationsIcon color="action" className="mr-2 mt-1 h-6 w-6 cursor-pointer"/>} >
       <Dropdown.Item onClick={() => alert('Dashboard!')}>Notifcation 1</Dropdown.Item>
@@ -152,9 +170,9 @@ export function Navbar() {
 
          <img src="/images/no-avatar.png" alt="" className="w-[36px] h-[36px] rounded-full object-cover mr-3" />
        
-          <a href="#" >
+          <div onClick={handleLogout} >
             <Button color="gray">Logout</Button>
-          </a>
+          </div>
         </div>
         <IconButton
           variant="text"
@@ -168,6 +186,10 @@ export function Navbar() {
             <Bars3Icon strokeWidth={2} className="h-6 w-6" />
           )}
         </IconButton>
+        </>
+      )}  
+
+
       </div> 
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
@@ -181,14 +203,17 @@ export function Navbar() {
           </ul>
     
           <div className="mt-6 mb-4 flex items-center gap-2">
-            <Button href='/login' variant="text">Log in</Button>
-            <a href="/register" target="_blank">
+            <Link to='/login'>
+            <Button  variant="text">Log in</Button>
+            </Link>
+            <Link to="/register" target="_blank">
               <Button color="gray">Sign Up</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </Collapse>
     </MTNavbar>
+
   );
 }
 

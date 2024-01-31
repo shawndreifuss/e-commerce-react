@@ -1,4 +1,5 @@
 import { Typography, Button, Input } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const LINKS = [
   {
@@ -59,12 +60,12 @@ export function Footer() {
                 <Input label="Email" color="gray" />
                 <Typography className="font-medium mt-3 !text-sm !text-gray-500 text-left">
                   I agree the{" "}
-                  <a
+                  <Link to='/terms'
                     href="#"
                     className="font-bold underline hover:text-gray-900 transition-colors"
                   >
                     Terms and Conditions{" "}
-                  </a>
+                  </Link>
                 </Typography>
               </div>
               <Button color="gray" className="w-full lg:w-fit" size="md">
@@ -78,9 +79,9 @@ export function Footer() {
           className="md:text-center mt-16 font-normal !text-gray-700"
         >
           by{" "}
-          <a href="/" target="_blank">
+          <Link to="/" target="_blank">
             @Shawn Dreifuss
-          </a>
+          </Link>
           .
         </Typography>
       </div>
