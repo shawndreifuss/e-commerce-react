@@ -1,40 +1,72 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { server } from "../server";
-import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
+//  Import Variables  ==================================
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { server } from "../server";
+import { Spinner } from "@material-tailwind/react";
+import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
+
 
 export function Login() {
+  // Create a state to store the email and password
   const Navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isUser, setIsUser] = useState(false);
+  const { isAuthenticated  } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
 
+
+
+
+  //  Check if the user is authenticated ==================================
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      Navigate("/");
+    }
+  }, [isAuthenticated]);
+
+  //  Handle the form submission ==================================
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+   setLoading(true)
     await axios
       .post(
         `${server}/api/user/login`,
         {
           email,
           password,
-          
         },
-         { withCredentials: true }
-       
+        { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");
-        Navigate("/");
+        console.log(res.data.token)
+        if (res.data.token) {
+        ;
+        }
+        setTimeout(() => {
+          setLoading(false)
+          window.location.reload()
+      Navigate("/")
+        }
+        , 3000);
       })
       .catch((err) => {
-      toast.error(" invalid Username or Password");
+        toast.error(" invalid Username or Password");
       });
   };
+
   return (
+    <>
+    {loading === true ? ( 
+<div className="flex w-full h-screen border-2">
+    <div className="  w-20 m-auto">
+     <Spinner className="h-16 w-16  text-gray-900/50" />
+     </div>
+</div>
+     ) : (
     <section className="m-8 flex gap-4">
       <div className="w-full lg:w-3/5 mt-24">
         <div className="text-center">
@@ -80,7 +112,7 @@ export function Login() {
               Password
             </Typography>
             <Input
-             autoComplete="on"
+              autoComplete="on"
               type="password"
               size="lg"
               placeholder="********"
@@ -111,7 +143,12 @@ export function Login() {
             }
             containerProps={{ className: "-ml-2.5" }}
           />
-          <Button onClick={handleSubmit} type="submit" className="mt-6" fullWidth>
+          <Button
+            onClick={handleSubmit}
+            type="submit"
+            className="mt-6"
+            fullWidth
+          >
             Sign In
           </Button>
 
@@ -200,6 +237,8 @@ export function Login() {
         />
       </div>
     </section>
+    )}
+    </>
   );
 }
 

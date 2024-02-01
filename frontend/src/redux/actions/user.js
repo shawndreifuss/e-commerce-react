@@ -47,6 +47,5 @@ export const logout = () => async (dispatch) => {
       payload: error.response.data.message,
     });
   }
-  console.log(data)
 }
 

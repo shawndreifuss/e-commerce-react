@@ -1,37 +1,53 @@
-import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
-import { Link, Navigate } from "react-router-dom";
-import { useState } from "react";
+//  IMPORTS  ==============================================
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import axios from "axios";
 import { server } from "../server";
-import { toast } from "react-toastify";
+import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
+
 export function Register() {
+  //  VARIABLES  ==============================================
+  const Navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
-  
+  const { isAuthenticated } = useSelector((state) => state.user);
 
+  //  USEEFFECT to get if User isAuthenticated and navigate to homepage after Register
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      Navigate("/");
+    }
+  }, [isAuthenticated]);
+
+  // Handle Submit Funtion to Register New User  ==============================================
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const config = {headers: {"Content-Type": "multipart/form-data"}}
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
     const newForm = new FormData();
     newForm.append("file", avatar);
     newForm.append("name", name);
     newForm.append("email", email);
     newForm.append("password", password);
 
-    axios.post(`${server}/api/user/register`, newForm, config)
-    .then((res) => {
-      toast.success(res.data.message);
-      setName("");
-      setEmail("");
-      setPassword("");
-      setAvatar();
+    axios
+      .post(`${server}/api/user/register`, newForm, config)
+      .then((res) => {
+        toast.success(res.data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setAvatar();
       })
-    .catch((err) => {
-      console.log(err);
-    })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  // Handle File Upload Function  ==============================================
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -136,7 +152,6 @@ export function Register() {
                 className: "before:content-none after:content-none",
               }}
               type="password"
-              
             />
           </div>
 
@@ -248,7 +263,12 @@ export function Register() {
               className="flex items-center gap-2 justify-center shadow-md"
               fullWidth
             >
-              <img src="/images/twitter-logo.svg" height={24} width={24} alt="" />
+              <img
+                src="/images/twitter-logo.svg"
+                height={24}
+                width={24}
+                alt=""
+              />
               <span>Sign in With Twitter</span>
             </Button>
           </div>

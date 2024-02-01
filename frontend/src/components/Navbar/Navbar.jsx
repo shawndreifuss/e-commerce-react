@@ -1,29 +1,29 @@
 
-import React, { useEffect } from "react";
-import { Dropdown } from 'flowbite-react';
+import React from "react";
+import Cart from "../Navbar/Cart";
+import Notification from "./Notification";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import HomeIcon from '@mui/icons-material/Home';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import Searchbar from "./Homepage/Searchbar";
-import Store from "../redux/store";
-import { logout ,loadUser} from "../redux/actions/user";
+import Searchbar from "../Homepage/Searchbar";
+import Store from "../../redux/store";
+import { logout} from "../../redux/actions/user";
 import {
   Navbar as MTNavbar,
   Collapse,
   Button,
   IconButton,
   Typography,
-  Input,
 } from "@material-tailwind/react";
 import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
+
 
 
 const NAV_MENU = [
@@ -44,7 +44,11 @@ const NAV_MENU = [
   },
 ];
 
+
+
 function NavItem({ children, href }) {
+ 
+
 
   return (
     <Link to={href}>
@@ -63,29 +67,18 @@ function NavItem({ children, href }) {
   );
 }
 
-export function Navbar({user}) {
+export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [isUser, setIsUser] = useState('');
 
-  
-  useEffect(() => {
-    Store.dispatch(loadUser())
-    const user = Store.getState().user.isAuthenticated
-    setIsUser(user)
-    console.log(user)
-  }
-  )
-  
+const { isAuthenticated  } = useSelector((state) => state.user);
+const { user } = useSelector((state) => state.user);
+
+
 
   const handleLogout = () => { 
     Store.dispatch(logout())
-    console.log(Store.getState().user.isAuthenticated)
     toast.success('Logged out successfully')
-
    window.location.href = '/login'
-
-
-    
     }
 
 
@@ -119,7 +112,7 @@ export function Navbar({user}) {
         <Searchbar />
 
 
-     {!isUser ? (
+     {!isAuthenticated ? (
 <>
          <div className="hidden items-center gap-2 lg:flex">
           <Link to='/login'><Button href="/login" variant="text">Login</Button></Link>
@@ -146,29 +139,8 @@ export function Navbar({user}) {
 
           <>
          <div className="hidden items-center gap-2 lg:flex">
-              <Dropdown label="" renderTrigger={() => <NotificationsIcon color="action" className="mr-2 mt-1 h-6 w-6 cursor-pointer"/>} >
-      <Dropdown.Item onClick={() => alert('Dashboard!')}>Notifcation 1</Dropdown.Item>
-      <Dropdown.Item onClick={() => alert('Settings!')}>Notifcation 2</Dropdown.Item>
-      <Dropdown.Item onClick={() => alert('Earnings!')}>Notifcation 3</Dropdown.Item>
-      <Dropdown.Item onClick={() => alert('Sign out!')}>Notifcation 4</Dropdown.Item>
-    </Dropdown>
-         
-    <Dropdown label="" renderTrigger={() => <ShoppingCartIcon color="action" className="mr-2 mt-1 h-6 w-6 cursor-pointer"/>} >
-      <Dropdown.Header>
-        <span className="block text-sm">Username</span>
-        <span className="block truncate text-sm font-medium">user@email.com</span>
-      </Dropdown.Header>
-      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 1</span></Dropdown.Item>
-      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 2</span></Dropdown.Item>
-      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 3</span></Dropdown.Item>
-      <Dropdown.Item className="flex justify-between" > <img src="/images/no-avatar.png" alt="" className="w-7 h-7 m-0 p-0 object-cover" /><span>Cart Item 4</span></Dropdown.Item>
-      <Dropdown.Divider />
-      <Link to='/'>
-      <Dropdown.Item >View All</Dropdown.Item>
-      </Link>
-    </Dropdown>
-
-         <img src="/images/no-avatar.png" alt="" className="w-[36px] h-[36px] rounded-full object-cover mr-3" />
+           <Notification />
+         <Cart />
        
           <div onClick={handleLogout} >
             <Button color="gray">Logout</Button>

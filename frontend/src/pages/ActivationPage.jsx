@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { server } from "../server";
 import axios from "axios";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Typography,
+} from "@material-tailwind/react";
 
 
 const ActivationPage = () => {
-  const { activationToken } = useParams();
-  const [error, setError] = useState(false);
 
+
+const { activationToken } = useParams();
+const [error, setError] = useState(false);
+const [open, setOpen] = useState(true);
+ 
+const handleOpen = () => setOpen(!open);
 
   
 useEffect(() => {
@@ -34,29 +46,47 @@ useEffect(() => {
 
 
     
-    <div className="relative p-4 w-full max-w-md h-full md:h-auto">
-        
-        <div className="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-            <button type="button" className="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="deleteModal">
-                <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                <span className="sr-only">Close modal</span>
-            </button>
-            <svg className="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>
-            {error ? (
-              <p className="mb-4 text-gray-500 dark:text-gray-300">Something went wrong, please try again.</p>
-            ) : (
-              <p className="mb-4 text-gray-500 dark:text-gray-300">Thank you for Signing Up!</p>
-            )}
-
-            <div className="flex justify-center items-center space-x-4">
-              {error ? (<></>) : ( 
-                <button type="submit" className="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
-                    Start Shopping 
-                </button>
-                )} 
-            </div>
-        </div>
-    </div>
+    <>
+      <Button onClick={handleOpen}>Notification</Button>
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader>
+          <Typography variant="h5" color="blue-gray">
+            {error ? "Error Something Went Wroing Please try again" : "Thank you for Sigining up!"}
+           
+          </Typography>
+        </DialogHeader>
+        <DialogBody divider className="grid place-items-center gap-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-16 w-16 text-red-500"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <Typography color="red" variant="h4">
+            Welcome to Fake Store
+          </Typography>
+        </DialogBody>
+        <DialogFooter className="space-x-2">
+          {error ? ( <Link to="/register">
+          <Button variant="gradient" onClick={handleOpen}>
+            Try Again
+          </Button>
+          </Link>) :(
+          <Link to="/">
+          <Button variant="gradient" onClick={handleOpen}>
+            Shop
+          </Button>
+          </Link>
+          )}
+        </DialogFooter>
+      </Dialog>
+    </>
 
   
     )

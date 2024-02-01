@@ -5,6 +5,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Products from '../components/ProductsPage/Products'
 import { sortOptions, subCategories, filters, productData } from '../data'
+import { Link } from 'react-router-dom'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -108,7 +109,7 @@ export default function ProductsPage() {
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                       {subCategories && subCategories.map((category, index) => (
-                        <li onClick={() => filterProducts(category)} key={index}>
+                        <li className='cursor-pointer hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ' onClick={() => filterProducts(category)} key={index}>
                           <a  className="block px-2 py-3">
                             {category.name}
                           </a>
@@ -238,11 +239,13 @@ export default function ProductsPage() {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+                <ul role="list" className="space-y-4 border-gray-800 w-full pb-6 text-md font-medium text-gray-900">
                   {subCategories.map((category) => (
-                    <li key={category.name} onClick={() => filterProducts(category)}>
-                      <a href={category.href}>{category.name}</a>
+                   
+                    <li className='cursor-pointer w-full h-full py-3 border-b border-1 border-gray-300 hover:bg-gray-100 focus:bg-gray-400'  key={category.name} onClick={() => filterProducts(category)}>
+                      <Link className='' to={category.href}>{category.name}</Link>
                     </li>
+                   
                   ))}
                 </ul>
 
@@ -277,6 +280,7 @@ export default function ProductsPage() {
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
                                   className="ml-3 text-sm text-gray-600"
+                                  
                                 >
                                   {option.label}
                                 </label>

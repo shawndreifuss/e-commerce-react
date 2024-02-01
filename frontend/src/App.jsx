@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import ActivationPage from './pages/ActivationPage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,35 +11,25 @@ import ProductsPage from './pages/ProductsPage';
 import Store from './redux/store';
 import { loadUser } from './redux/actions/user';
 import SingleProduct from './pages/SingleProduct';
+import Checkout from './pages/Checkout';
+import ProfilePage from './pages/ProfilePage';
 
 
 
  function App() {
- const [ user , setUser ] = useState(Store.getState().user.isAuthenticated)
- const [ loading , setLoading ] = useState(false)
+ const [ isUserAuth , setIsUserAuth ] = useState('')
 
 
   useEffect(() => {
    Store.dispatch(loadUser())
-   console.log(Store.getState())
-   const user = Store.getState().user.isAuthenticated
-    setUser(user)
-    if (Store.getState().user.loading) {
-    setLoading(Store.getState().user.loading)
-     
-    }
-  }, [user])
-
-
-  
-  
-
+   const authenticated = Store.getState().user.isAuthenticated
+    setIsUserAuth(authenticated)
+    }, [isUserAuth])
 
   return (
     <BrowserRouter>
-    {!loading ? ( <h1>Loading...</h1> ) : (
       <>
-   <Navbar user = {user} />
+   <Navbar  />
       <Routes>
         <Route path="/" element={<Homepage/>} />
         <Route path="/login" element={<Login/>} />
@@ -48,6 +38,8 @@ import SingleProduct from './pages/SingleProduct';
         <Route path="/activation/:activationToken" element={<ActivationPage/>} />
         <Route path="/products" element={<ProductsPage/>} />
         <Route path="/product/:productId" element={<SingleProduct/>} />
+        <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
       </Routes>
       <ToastContainer 
         position="bottom-center"
@@ -62,7 +54,7 @@ import SingleProduct from './pages/SingleProduct';
         them="dark"
         />
         </>
-      )}
+    
       
     </BrowserRouter>
 

@@ -11,6 +11,7 @@ import Ratings from "../components/ProductsPage/Ratings";
 import {Button} from 'flowbite-react';
 import { product as data } from "../data";
 import SingleProductRatings from "../components/ProductsPage/SingleProductRatings";
+import { useNavigate } from "react-router-dom";
 
 
 const singles =  {
@@ -34,7 +35,9 @@ function classNames(...classes) {
 
 export default function SingleProduct() {
   const params = useParams();
-  console.log(params.productId)
+  
+
+  const Navigate = useNavigate();
   
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
@@ -53,6 +56,10 @@ export default function SingleProduct() {
   useEffect(() => {
     SingleProduct(params.productId)
   });
+
+  const handleMessageSend = () => {
+    Navigate("/inbox?conversation=984q3tvwybwy3vy5vyw45y")
+  }
  
  
   
@@ -153,6 +160,15 @@ export default function SingleProduct() {
                 </div>
                 <p className="text-gray-500">{product.category}</p>
               </div>
+
+              {/*  Handle Message Send */}
+              <div className="mt-6">
+                <Button onClick={handleMessageSend} className="w-full h-14">Message Seller</Button>
+                </div>
+
+
+
+
 
               <form className="mt-10 w-3/5">
 
